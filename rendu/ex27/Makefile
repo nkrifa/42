@@ -10,38 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = ft_display_file
 
-SRCS_C = srcs/ft_putchar.c \
-					srcs/ft_putstr.c \
-					srcs/ft_strcmp.c \
-					srcs/ft_strlen.c \
-					srcs/ft_swap.c
-
-SRCS_O =	ft_putchar.o \
-					ft_putstr.o \
-					ft_strcmp.o \
-					ft_strlen.o \
-					ft_swap.o
-
-HEADER =	includes/
-
-CC = gcc
-
-CFLAGS = -Wall -Werror -Wextra
+SRC = ft_display_file.c
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) -c $(SRCS_C) -I $(HEADER)
-	ar rc $(NAME) $(SRCS_O)
-	ranlib $(NAME)
+	gcc -c -Wall -Werror -Wextra $(SRC)
+	gcc -o $(NAME) ft_display_file.o
 
 clean:
-	rm -rf $(SRCS_O)
+	/bin/rm -f ft_display_file.o
 
 fclean: clean
-	rm -rf $(NAME)
-
-re: fclean $(NAME)
-
+	/bin/rm -f $(NAME)
